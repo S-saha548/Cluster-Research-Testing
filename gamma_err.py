@@ -50,7 +50,7 @@ def remove_error(data, param, bins=25, pthresh=.5, verbose=0):
         ValueError: pthresh > 1. or pthresh < 0.
         ValueError: verbosity != 0 or 1 or 2
     """
-    # scopt constants
+    # scope constants
     raw_array = None
     acceptable_verbose = [0, 1, 2]
 

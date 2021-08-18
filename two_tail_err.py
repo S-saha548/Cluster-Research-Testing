@@ -72,14 +72,14 @@ def chop_tails(data, param, bins=25, factor=1, verbose=0):
             print(f'\u03bc: {mean}, \u03c3: {std}')
         p = stats.norm.pdf(bins, mean, std)
         plt.plot(bins, p, color='crimson', linestyle='-', label='Gaussian Fit')
-        plt.title(f'{param.upper()} Standardized Distribution with Gamma Fit')
-        plt.axvline(mean + factor * std, color='navy', linestyle='-.', label='Max Threshold')
+        plt.title(f'{param.upper()} Standardized Distribution with Gaussian Fit')
+        plt.axvline(mean + factor * std, color='chocolate', linestyle='-.', label='Max Threshold')
         plt.axvline(mean - factor * std, color='navy', linestyle='-.', label='Min Threshold')
         plt.legend(loc='best')
         plt.xlabel(param)
         plt.ylabel('counts')
         plt.show()
     
-    # only retain data below max threshold
+    # only retain data within thresholds
     data = data[(data[param] <= mean + factor * std) & (data[param] >= mean - factor * std)]
     return data
